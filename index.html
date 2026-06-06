@@ -19,11 +19,11 @@
                     },
                     colors: {
                         brand: {
-                            dark: '#D9779B',     
-                            main: '#FF9EBB',     
-                            light: '#FFF0F5',    
-                            text: '#4A332A',     
-                            subtext: '#8A6F65'   
+                            dark: '#38BDF8',     
+                            main: '#7DD3FC',     
+                            light: '#E0F2FE',    
+                            text: '#1E3A8A',     
+                            subtext: '#475569'   
                         }
                     },
                     boxShadow: {
@@ -97,9 +97,42 @@
             background: #7c8fcc;
             border-radius: 10px;
         }
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #FFFBF7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            flex-direction: column;
+            gap: 20px;
+        }
+        #loading-screen.hidden {
+            display: none;
+        }
+        .loading-gif {
+            max-width: 150px;
+            width: 100%;
+        }
+        .loading-text {
+            font-size: 14px;
+            color: #1E3A8A;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body class="text-brand-text font-sans antialiased">
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <img src="https://i.pinimg.com/originals/9f/51/3e/9f513ebfa7a0fbcaae22d305796dc77a.gif" alt="Loading" class="loading-gif">
+        <p class="loading-text">กำลังโหลด...</p>
+    </div>
 
     <div class="app-container flex flex-col">
         
@@ -129,7 +162,7 @@
                 
                 <!-- อัปเดตลิงก์รูปภาพโดยตรงจากเว็บฝากรูปแล้วค่ะ ปังชัวร์! -->
                 <div class="hero-image-placeholder mt-4 mb-[-80px]">
-                    <img src="https://img1.pic.in.th/images/logo298e0c11893f3d1f6.png" alt="Pinkjulieland Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23FF9EBB\'><path d=\'M16 6V4C16 1.79 14.21 0 12 0C9.79 0 8 1.79 8 4V6H2V22C2 23.1 2.9 24 4 24H20C21.1 24 22 23.1 22 22V6H16ZM10 4C10 2.9 10.9 2 12 2C13.1 2 14 2.9 14 4V6H10V4ZM20 22H4V8H20V22Z\'/></svg>'">
+                    <img src="https://img1.pic.in.th/images/logo298e0c11893f3d1f6.png" alt="Pinkjulieland Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%237DD3FC\'><path d=\'M16 6V4C16 1.79 14.21 0 12 0C9.79 0 8 1.79 8 4V6H2V22C2 23.1 2.9 24 4 24H20C21.1 24 22 23.1 22 22V6H16ZM10 4C10 2.9 10.9 2 12 2C13.1 2 14 2.9 14 4V6H10V4ZM20 22H4V8H20V22Z\'/></svg>'">
                 </div>
             </div>
 
@@ -146,25 +179,25 @@
                 <div class="grid grid-cols-4 gap-3 mb-8">
                     <!-- Menu Items -->
                     <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="switchTab('page-services', 1)">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-light group-hover:bg-[#FFD1E0] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-main/10 transition-colors">
+                            <div class="w-14 h-14 rounded-2xl bg-brand-light group-hover:bg-[#D1EEFF] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-main/10 transition-colors">
                             <i class="fa-solid fa-laptop-code"></i>
                         </div>
                         <span class="text-[10px] text-center text-brand-text font-medium leading-tight">รับทำ<br>เว็บไซต์</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="switchTab('page-goodnotes', 2)">
-                        <div class="w-14 h-14 rounded-2xl bg-[#F5ECE9] group-hover:bg-[#EFE5E2] flex items-center justify-center text-[#8A6F65] text-xl shadow-sm border border-[#EFE5E2] transition-colors">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-light group-hover:bg-[#D1EEFF] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-light transition-colors">
                             <i class="fa-solid fa-book-open"></i>
                         </div>
                         <span class="text-[10px] text-center text-brand-text font-medium leading-tight">ตัวอย่าง<br>ผลงาน</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="switchTab('page-course', -1)">
-                        <div class="w-14 h-14 rounded-2xl bg-[#EFE5E2] group-hover:bg-[#E0D4CF] flex items-center justify-center text-brand-text text-xl shadow-sm border border-[#E0D4CF] transition-colors">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-light group-hover:bg-[#D1EEFF] flex items-center justify-center text-brand-text text-xl shadow-sm border border-brand-light transition-colors">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
                         <span class="text-[10px] text-center text-brand-text font-medium leading-tight">คอร์ส<br>สอนเว็บ</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="switchTab('page-contact', 3)">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-light group-hover:bg-[#FFD1E0] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-main/10 transition-colors">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-light group-hover:bg-[#D1EEFF] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-main/10 transition-colors">
                             <i class="fa-regular fa-comment-dots"></i>
                         </div>
                         <span class="text-[10px] text-center text-brand-text font-medium leading-tight">ช่องทาง<br>ติดต่อ</span>
@@ -230,51 +263,51 @@
                 <div class="bg-white rounded-[24px] shadow-app p-5 border border-brand-light">
                     <div class="grid grid-cols-4 gap-y-6 gap-x-2">
                         <!-- Templates -->
-                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="toggleCategory('bright')">
-                            <div class="w-12 h-12 rounded-xl bg-brand-light group-hover:bg-[#FFD1E0] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-light transition-colors">
+                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="showProductMenu('blockGroup')">
+                            <div class="w-12 h-12 rounded-xl bg-brand-light group-hover:bg-[#D1EEFF] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-light transition-colors">
                                 <i class="fa-solid fa-sun"></i>
                             </div>
                             <span class="text-[10px] text-center text-brand-text font-medium">กลุ่มบล็อค</span>
                         </div>
-                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="toggleCategory('dark')">
-                            <div class="w-12 h-12 rounded-xl bg-[#F5ECE9] group-hover:bg-[#EFE5E2] flex items-center justify-center text-[#8A6F65] text-xl shadow-sm border border-[#F5ECE9] transition-colors">
+                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="showProductMenu('decor')">
+                            <div class="w-12 h-12 rounded-xl bg-brand-light group-hover:bg-[#D1EEFF] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-light transition-colors">
                                 <i class="fa-solid fa-moon"></i>
                             </div>
                             <span class="text-[10px] text-center text-brand-text font-medium">ของตกแต่ง</span>
                         </div>
-                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="toggleCategory('pastel')">
-                            <div class="w-12 h-12 rounded-xl bg-brand-light group-hover:bg-[#FFD1E0] flex items-center justify-center text-brand-text text-xl shadow-sm border border-brand-light transition-colors">
+                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="showProductMenu('cartoon')">
+                            <div class="w-12 h-12 rounded-xl bg-brand-light group-hover:bg-[#D1EEFF] flex items-center justify-center text-brand-text text-xl shadow-sm border border-brand-light transition-colors">
                                 <i class="fa-solid fa-candy-cane"></i>
                             </div>
                             <span class="text-[10px] text-center text-brand-text font-medium">กลุ่มตูน</span>
                         </div>
-                        <!-- Links to other pages -->
-                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="switchTab('page-course', -1)">
-                            <div class="w-12 h-12 rounded-xl bg-[#EFE5E2] group-hover:bg-[#E0D4CF] flex items-center justify-center text-brand-text text-xl shadow-sm border border-[#EFE5E2] transition-colors">
+                        <!-- Product menu items -->
+                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="showProductMenu('signs')">
+                            <div class="w-12 h-12 rounded-xl bg-brand-light group-hover:bg-[#D1EEFF] flex items-center justify-center text-brand-text text-xl shadow-sm border border-brand-light transition-colors">
                                 <i class="fa-solid fa-chalkboard-user"></i>
                             </div>
                             <span class="text-[10px] text-center text-brand-text font-medium">สอนหัวป้าย</span>
                         </div>
-                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="switchTab('page-goodnotes', 2)">
-                            <div class="w-12 h-12 rounded-xl bg-brand-light group-hover:bg-[#FFD1E0] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-light transition-colors">
+                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="showProductMenu('frames')">
+                            <div class="w-12 h-12 rounded-xl bg-brand-light group-hover:bg-[#D1EEFF] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-light transition-colors">
                                 <i class="fa-solid fa-star"></i>
                             </div>
                             <span class="text-[10px] text-center text-brand-text font-medium">กรอบเรท ตุ้งติ้ง</span>
                         </div>
-                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="switchTab('page-goodnotes', 2)">
-                            <div class="w-12 h-12 rounded-xl bg-[#F5ECE9] group-hover:bg-[#EFE5E2] flex items-center justify-center text-[#8A6F65] text-xl shadow-sm border border-[#F5ECE9] transition-colors">
-                                <i class="fa-solid fa-check-circle"></i>
+                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="showProductMenu('blockPieces')">
+                            <div class="w-12 h-12 rounded-xl bg-brand-light group-hover:bg-[#D1EEFF] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-light transition-colors">
+                                <i class="fa-solid fa-cube"></i>
                             </div>
-                            <span class="text-[10px] text-center text-brand-text font-medium">GN รายปี</span>
+                            <span class="text-[10px] text-center text-brand-text font-medium">ชิ้นส่วนบล็อค</span>
                         </div>
-                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="switchTab('page-goodnotes', 2)">
-                            <div class="w-12 h-12 rounded-xl bg-[#EFE5E2] group-hover:bg-[#E0D4CF] flex items-center justify-center text-brand-text text-xl shadow-sm border border-[#EFE5E2] transition-colors">
-                                <i class="fa-solid fa-crown"></i>
+                        <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="showProductMenu('png')">
+                            <div class="w-12 h-12 rounded-xl bg-brand-light group-hover:bg-[#D1EEFF] flex items-center justify-center text-brand-text text-xl shadow-sm border border-brand-light transition-colors">
+                                <i class="fa-solid fa-image"></i>
                             </div>
-                            <span class="text-[10px] text-center text-brand-text font-medium">GN Pro</span>
+                            <span class="text-[10px] text-center text-brand-text font-medium">PNG</span>
                         </div>
                         <div class="flex flex-col items-center gap-2 cursor-pointer group" onclick="switchTab('page-contact', 3)">
-                            <div class="w-12 h-12 rounded-full bg-brand-light group-hover:bg-[#FFD1E0] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-main/20 transition-colors">
+                            <div class="w-12 h-12 rounded-full bg-brand-light group-hover:bg-[#D1EEFF] flex items-center justify-center text-brand-main text-xl shadow-sm border border-brand-main/20 transition-colors">
                                 <i class="fa-solid fa-ellipsis"></i>
                             </div>
                             <span class="text-[10px] text-center text-brand-text font-medium">ติดต่อ</span>
@@ -357,7 +390,7 @@
                         </ul>
                     </div>
                     
-                    <button onclick="switchTab('page-contact', 3)" class="w-full bg-brand-main hover:bg-brand-dark text-white font-semibold py-3.5 rounded-xl shadow-lg shadow-pink-300 transition-all text-sm flex items-center justify-center gap-2">
+                    <button onclick="switchTab('page-contact', 3)" class="w-full bg-brand-main hover:bg-brand-dark text-white font-semibold py-3.5 rounded-xl shadow-lg shadow-sky-300/20 transition-all text-sm flex items-center justify-center gap-2">
                         ทักแชทสั่งทำเลย <i class="fa-regular fa-paper-plane"></i>
                     </button>
                 </div>
@@ -382,14 +415,14 @@
                         </ul>
                     </div>
                     
-                    <button onclick="switchTab('page-course', -1)" class="w-full bg-brand-text hover:bg-[#3A2821] text-white font-semibold py-3.5 rounded-xl shadow-lg shadow-[#EFE5E2] transition-all text-sm flex items-center justify-center gap-2">
+                    <button onclick="switchTab('page-course', -1)" class="w-full bg-brand-main hover:bg-brand-dark text-white font-semibold py-3.5 rounded-xl shadow-lg shadow-sky-300/20 transition-all text-sm flex items-center justify-center gap-2">
                         ดูรายละเอียดคอร์สเต็มๆ <i class="fa-solid fa-arrow-right ml-1"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- ==================== PAGE 4: GOODNOTES ==================== -->
+        <!-- ==================== PAGE 4: PORTFOLIO (ตัวอย่างงาน) ==================== -->
         <div id="page-goodnotes" class="page">
             <div class="gradient-bg pt-10 px-6 pb-20 relative rounded-b-[40px]">
                 <div class="flex justify-between items-center mb-6">
@@ -400,63 +433,59 @@
                     <div class="w-8"></div>
                 </div>
                 <div class="text-center mb-2 z-10 relative">
-                    <h1 class="font-outfit text-sm font-medium text-brand-subtext">Premium Apps</h1>
+                    <h1 class="font-outfit text-sm font-medium text-brand-subtext">Portfolio</h1>
                     <div class="text-2xl font-bold mt-1 text-brand-text flex justify-center items-center">
-                        แอป Goodnotes <i class="fa-solid fa-pen-nib ml-2 text-white drop-shadow-sm"></i>
+                        ตัวอย่างงาน <i class="fa-solid fa-image ml-2 text-white drop-shadow-sm"></i>
                     </div>
                 </div>
             </div>
 
             <div class="px-5 -mt-10 relative z-10 pb-8 space-y-4">
                 <div class="bg-white rounded-[24px] shadow-app border border-brand-light p-5">
-                    <p class="text-xs text-brand-subtext text-center mb-4">สายจดสรุป สายเรียนห้ามพลาด! อัปเดตฟรีตลอดชีพ โหลดไว้ใช้ยังไงก็คุ้ม <i class="fa-solid fa-heart text-brand-main ml-1"></i></p>
+                    <p class="text-xs text-brand-subtext text-center mb-4">ดูตัวอย่างผลงานต่างๆ ของเรา <i class="fa-solid fa-sparkles text-brand-main ml-1"></i></p>
                     
                     <div class="space-y-3">
-                        <!-- รายการ 1 -->
-                        <div class="border border-brand-light rounded-xl p-3 flex items-center justify-between bg-white hover:bg-brand-light/30 transition-colors">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-lg bg-brand-light flex items-center justify-center text-brand-main text-lg"><i class="fa-solid fa-infinity"></i></div>
-                                <div>
-                                    <div class="text-sm font-bold text-brand-text">GN ถาวร (IOS)</div>
-                                    <div class="text-[10px] text-brand-subtext">โหลดผ่าน Apple ID ร้าน</div>
+                        <!-- ลิงค์ 1 -->
+                        <a href="https://drive.google.com/drive/folders/12n7lKzeK_LIj5rh57ApFhkvmeym_rSK2?usp=drive_link" target="_blank" class="border border-brand-light rounded-xl p-4 flex items-center justify-between bg-white hover:bg-brand-light/30 transition-colors group">
+                            <div class="flex items-center gap-3 flex-1">
+                                <div class="w-12 h-12 rounded-lg bg-brand-light flex items-center justify-center text-brand-main text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-link"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="text-sm font-bold text-brand-text truncate">ตัวอย่างงานป้าย</div>
+                                    <div class="text-[10px] text-brand-subtext truncate">คลิกเพื่อดูตัวอย่างผลงาน</div>
                                 </div>
                             </div>
-                            <div class="text-right">
-                                <div class="text-brand-main font-bold text-sm">69.-</div>
-                                <button onclick="switchTab('page-contact', 3)" class="text-[9px] bg-brand-light text-brand-main px-2 py-1 rounded-md mt-1 font-bold">สั่งซื้อ</button>
-                            </div>
-                        </div>
+                            <i class="fa-solid fa-arrow-up-right text-brand-main ml-2"></i>
+                        </a>
 
-                        <!-- รายการ 2 -->
-                        <div class="border border-[#EFE5E2] rounded-xl p-3 flex items-center justify-between bg-white hover:bg-[#F5ECE9]/30 transition-colors">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-lg bg-[#F5ECE9] flex items-center justify-center text-[#8A6F65] text-lg"><i class="fa-solid fa-calendar-check"></i></div>
-                                <div>
-                                    <div class="text-sm font-bold text-brand-text">GN รายปี (IOS)</div>
-                                    <div class="text-[10px] text-brand-subtext">ใช้งาน 1 ปีเต็มสุดคุ้ม</div>
+                        <!-- ลิงค์ 2 -->
+                        <a href="https://drive.google.com/drive/folders/1tyziwGwgSNfP2DHvn_n9KysPuXJwIjxh?usp=drive_link" target="_blank" class="border border-brand-light rounded-xl p-4 flex items-center justify-between bg-white hover:bg-brand-light/30 transition-colors group">
+                            <div class="flex items-center gap-3 flex-1">
+                                <div class="w-12 h-12 rounded-lg bg-brand-light flex items-center justify-center text-brand-main text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-link"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="text-sm font-bold text-brand-text truncate">ตัวอย่างป้ายปล่อยเอฟ</div>
+                                    <div class="text-[10px] text-brand-subtext truncate">คลิกเพื่อดูตัวอย่างผลงาน</div>
                                 </div>
                             </div>
-                            <div class="text-right">
-                                <div class="text-[#8A6F65] font-bold text-sm">49.-</div>
-                                <button onclick="switchTab('page-contact', 3)" class="text-[9px] bg-[#F5ECE9] text-[#8A6F65] px-2 py-1 rounded-md mt-1 font-bold">สั่งซื้อ</button>
-                            </div>
-                        </div>
+                            <i class="fa-solid fa-arrow-up-right text-brand-main ml-2"></i>
+                        </a>
 
-                        <!-- รายการ 3 -->
-                        <div class="border border-[#EFE5E2] rounded-xl p-3 flex items-center justify-between bg-white hover:bg-[#F5ECE9]/30 transition-colors relative overflow-hidden">
-                            <div class="absolute top-0 right-0 bg-brand-text text-white text-[8px] font-bold px-2 py-0.5 rounded-bl-lg">BEST SELLER</div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-lg bg-[#EFE5E2] flex items-center justify-center text-brand-text text-lg"><i class="fa-solid fa-crown"></i></div>
-                                <div>
-                                    <div class="text-sm font-bold text-brand-text">GN Pro (Full)</div>
-                                    <div class="text-[10px] text-brand-subtext">ปลดล็อกครบทุกฟังก์ชัน</div>
+                        <!-- ลิงค์ 3 -->
+                        <a href="https://drive.google.com/drive/folders/1ffgxNf3Vwi_YplXJC9Wc5srzfUSi50XM?usp=drive_link" target="_blank" class="border border-brand-light rounded-xl p-4 flex items-center justify-between bg-white hover:bg-brand-light/30 transition-colors group">
+                            <div class="flex items-center gap-3 flex-1">
+                                <div class="w-12 h-12 rounded-lg bg-brand-light flex items-center justify-center text-brand-main text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-link"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="text-sm font-bold text-brand-text truncate">ตัวอย่างงานเว็ปไซต์</div>
+                                    <div class="text-[10px] text-brand-subtext truncate">คลิกเพื่อดูตัวอย่างผลงาน</div>
                                 </div>
                             </div>
-                            <div class="text-right">
-                                <div class="text-brand-text font-bold text-sm">99.-</div>
-                                <button onclick="switchTab('page-contact', 3)" class="text-[9px] bg-[#EFE5E2] text-brand-text px-2 py-1 rounded-md mt-1 font-bold">สั่งซื้อ</button>
-                            </div>
-                        </div>
+                            <i class="fa-solid fa-arrow-up-right text-brand-main ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -511,7 +540,7 @@
                         <i class="fa-regular fa-folder-open text-brand-main text-sm"></i> ดูตัวอย่างภายในกลุ่ม
                     </a>
                     
-                    <button onclick="switchTab('page-contact', 3)" class="w-full bg-brand-text hover:bg-[#3A2821] text-white font-semibold py-3.5 rounded-xl shadow-lg shadow-[#EFE5E2] transition-all text-sm flex items-center justify-center gap-2">
+                    <button onclick="switchTab('page-contact', 3)" class="w-full bg-brand-main hover:bg-brand-dark text-white font-semibold py-3.5 rounded-xl shadow-lg shadow-sky-300/20 transition-all text-sm flex items-center justify-center gap-2">
                         ทักแชทสมัครเรียนเลย <i class="fa-solid fa-hand-sparkles ml-1"></i>
                     </button>
                 </div>
@@ -606,10 +635,10 @@
             <div class="px-5 -mt-10 relative z-10 pb-8">
                 <div class="bg-white rounded-[24px] shadow-app border border-brand-light p-8 flex justify-center gap-8">
                     <a href="https://www.facebook.com/share/1BwGuMDGca/?mibextid=wwXIfr" target="_blank" class="flex flex-col items-center gap-2 group">
-                        <div class="w-16 h-16 rounded-full border-2 border-brand-light bg-brand-light/30 text-brand-main flex items-center justify-center text-3xl group-hover:bg-[#8A6F65] group-hover:text-white group-hover:border-[#8A6F65] transition-all shadow-sm">
+                        <div class="w-16 h-16 rounded-full border-2 border-brand-light bg-brand-light/30 text-brand-main flex items-center justify-center text-3xl group-hover:bg-brand-dark group-hover:text-white group-hover:border-brand-dark transition-all shadow-sm">
                             <i class="fa-brands fa-facebook-f"></i>
                         </div>
-                        <span class="text-xs font-semibold text-brand-text group-hover:text-[#8A6F65] transition-colors">Facebook</span>
+                        <span class="text-xs font-semibold text-brand-text group-hover:text-brand-dark transition-colors">Facebook</span>
                     </a>
                     <a href="https://line.me/ti/p/FZM7Ct3e7S" target="_blank" class="flex flex-col items-center gap-2 group">
                         <div class="w-16 h-16 rounded-full border-2 border-brand-light bg-brand-light/30 text-brand-main flex items-center justify-center text-3xl group-hover:bg-brand-text group-hover:text-white group-hover:border-brand-text transition-all shadow-sm">
@@ -638,8 +667,8 @@
                     <i class="fa-solid fa-laptop-code text-xl mb-0.5"></i>
                     <span class="text-[9px] font-medium">รับทำเว็บ</span>
                 </div>
-                <div class="relative w-1/4 flex justify-center" onclick="switchTab('page-services', -1)">
-                    <div class="absolute -top-10 w-14 h-14 bg-gradient-to-tr from-brand-main to-pink-300 rounded-full flex items-center justify-center text-white text-2xl shadow-lg shadow-pink-300/50 border-4 border-white cursor-pointer transform hover:scale-105 transition-transform">
+                <div class="relative w-1/4 flex justify-center cursor-pointer" onclick="switchTab('page-services', -1)">
+                    <div class="absolute -top-10 w-14 h-14 bg-gradient-to-tr from-brand-main to-sky-300 rounded-full flex items-center justify-center text-white text-2xl shadow-lg shadow-sky-300/50 border-4 border-white transform hover:scale-105 transition-transform" onclick="switchTab('page-services', -1)">
                         <i class="fa-solid fa-layer-group"></i>
                     </div>
                     <span class="text-[9px] font-bold text-brand-main mt-5">บริการทั้งหมด</span>
@@ -659,28 +688,78 @@
 
     <!-- Script for Tab Switching & Templates -->
     <script>
-        const templates = {
-            bright: [
-                { name: "✨ ธีมสดใส - ลูกอม", url: "https://t03.cozyw75.workers.dev" },
-                { name: "✨ ธีมสดใส - ผลไม้", url: "https://t04.cozyw75.workers.dev" },
-                { name: "✨ ธีมสดใส - ท้องฟ้า", url: "https://t05.cozyw75.workers.dev" }
+        const productCategories = {
+            blockGroup: [
+                { name: "🍒 𓈒 Group Cherry Block Ver.3", image: "https://img2.pic.in.th/5584dc01fe8b9b03882c00b90d6e9fe8.jpeg", url: "https://drive.google.com/drive/folders/1cjINwZkH242BtFmTctYAgk27FtzUTr1g" , description: "ค่าเข้า Pro 49 Bath"},
+                { name: "MAGGIE THE SERIES  💫", image: "https://img1.pic.in.th/images/a608fa4b98b3cee3c153ed7cb80d715e.jpeg", url: "https://drive.google.com/drive/folders/1GjpcrhPlhrTGIY5f7Tx5SSfI_RvqSp22", description: "ค่าเข้า 199 Bath" },
+                { name: "Nighty Luxury", image: "https://img2.pic.in.th/e032fecf5bd2cdb432c139ebb5bf70be.jpeg", url: "https://shorturl.asia/A2rew", description: "ค่าเข้า 199 Bath" },
+                { name: "Cynthia˚꒰ ♡ ꒱⋆", image: "https://img1.pic.in.th/images/Cynthia---..jpeg", url: "https://drive.google.com/drive/folders/1mnMlL62RciZzNc9ixBl12Qw65yyy-asy", description: "ค่าเข้า 89 Bath" },
+                { name: "Mumu Koralia Box", image: "https://img1.pic.in.th/images/Mumu-Koralia-Box.jpeg", url: "https://drive.google.com/drive/folders/1NKF1rmP_JM3Dj9JQJYZA_JTZZUz05N1O", description: "ค่าเข้า 49 Bath" },
+                { name: "🍒𓈒  Group  Cherry  Block  𓈒🍒", image: "https://img2.pic.in.th/-Group-Cherry-Block-.jpeg", url: "https://drive.google.com/drive/folders/171dXveVqgWaPQcnR6v80yoYHfu82RpN7", description: "ค่าเข้า 79 Bath" },
+                { name: "Brookies Sweet Box 🍥🤏🏻", image: "https://img1.pic.in.th/images/Brookies-Sweet-Box-.jpeg", url: "https://drive.google.com/drive/folders/1yNDOlKWdApplG9_fgemw0cL99pF8mWaW", description: "ค่าเข้า 79 Bath" },
+                { name: "☁️🖤Jamille Block V.2🖤☁️", image: "https://img1.pic.in.th/images/Jamille-Block-V.2.jpeg", url: "https://drive.google.com/drive/folders/1eaMZGJDwaXpGYynSNQFU9ieHY55TlGjL", description: "ค่าเข้า 89 Bath" },
+                { name: "𝑺𝒂𝒌𝒖𝒓𝒂𝒄𝒖𝒕𝒆 𝒗𝟐", image: "https://img2.pic.in.th/-e5e4c04bd5dcb5d0.jpeg", url: "https://drive.google.com/drive/folders/1Mpw1fjYO-nZWMzKH4ycIqzchJtUvai9m", description: "ค่าเข้า 69 Bath" },
+                { name: "Sakura box🌸", image: "https://img1.pic.in.th/images/Sakura-box.jpeg", url: "https://drive.google.com/drive/folders/1CEPNWX9ZoBjVqFfw9I7ySrn9tIQdc5Is", description: "ค่าเข้า 59 Bath" },
+                { name: "🍒 MumuLand Box ⭐️", image: "https://img2.pic.in.th/-MumuLand-Box-c7e8d80529fa5782.jpeg", url: "https://drive.google.com/drive/folders/1fhazJxxe0qMa-NdkSwlbdi81Vpg5lrMR", description: "ค่าเข้า 89 Bath" },
+                { name: "Selena Group", image: "https://img2.pic.in.th/Selena.jpeg", url: "https://drive.google.com/drive/folders/1bKEkyKAcSqRTCARnDDOE5_GuU9fcJP_o", description: "ค่าเข้า 79 Bath" },
+                { name: "️JaoMaiBox 🫧⭐️", image: "https://img2.pic.in.th/JaoMaiBox-.jpeg", url: "https://drive.google.com/drive/folders/1E1Ros2sTsRhxvP2uvR0ADLvShN76h-DZ", description: "ค่าเข้า 79 Bath" },
+                { name: "NΞBULΛ•BØX༻✧", image: "https://img1.pic.in.th/images/Ex.NKBULLBOX.jpeg", url: "https://drive.google.com/drive/folders/1qzhKnZ74alMyYpq8OwIiAjnJExooMURL", description: "ค่าเข้า 49 Bath" },
+                { name: "Jelly Sweet Block 🐰🍮🫧", image: "https://img1.pic.in.th/images/Ex.Jelly-Sweet-Block-.jpeg", url: "https://drive.google.com/drive/folders/13-Y0KYaYS2HJyFEPAwxl_pAyLz-1TFZU", description: "ค่าเข้า 79 Bath" },
+                { name: "Stazia Group🧸", image: "https://img2.pic.in.th/Stazia-Group.jpeg", url: "https://drive.google.com/drive/folders/16yZu3YIJtfIwvtyHsBaTc-zut--tC22E", description: "ค่าเข้า 89 Bath" },
+                { name: " ️𝓙𝘶𝘱𝘪𝘵𝘦𝘳 𝘗𝘦𝘳𝘳𝘪𝘦 🐰⭐️", image: "https://img1.pic.in.th/images/--a6c0d557130c2cbe.jpeg", url: "https://drive.google.com/drive/folders/1T_lKHSalixxGvR6bonuiroQyD6jrdgRX", description: "ค่าเข้า 89 Bath" },
+                { name: "ᱸ  𐙚  ﾟกลุ่ม Night garden block 𓈒︎  ᱸ  𓈒", image: "https://img1.pic.in.th/images/Night-garden-block---.jpeg", url: "https://drive.google.com/drive/folders/1Us91loehliSe-Mi5DgEiZOJUpR6-_8ff", description: "ค่าเข้า 99 Bath" },
+                { name: "LITTLE DUCK 🦢🎀", image: "https://img2.pic.in.th/LITTLE-DUCK-.jpeg", url: "https://drive.google.com/drive/folders/1WoyDSuaH6Uqm9BfptO4DlXrmI0VUuUgZ", description: "ค่าเข้า 59 Bath" },
+                { name: "♡ֹ𓂂݀    Hori parfait    𓈒ּ🍦ׄ𓂂", image: "https://img2.pic.in.th/-Hori-parfait-.jpeg", url: "https://drive.google.com/drive/folders/105WBkft5rmnpgYVETpm4h-MFy3Im0ZrB", description: "ค่าเข้า 59 Bath" },
+                { name: "♡ Quiyomi 귀여운", image: "https://img1.pic.in.th/images/Quiyomi---.jpeg", url: "[ http://bit.ly/43KmYkp ]", description: "ค่าเข้า 59 Bath" },
+                { name: "AsaMa ૮ཾ᠂ ♡᠂𓈒ა", image: "https://img1.pic.in.th/images/AsaMa--a.jpeg", url: "https://drive.google.com/drive/folders/1HJDpg5bIxQCwEReT5J6qTnAGktdX8F9Y", description: "ค่าเข้า 89 Bath" },
+                { name: "neko block 🐰", image: "https://img2.pic.in.th/download4765f3930b9a0935.jpeg", url: "https://drive.google.com/drive/folders/1Ay4NhwI3B6XEjONqB1ikIKx3OPJ63svU", description: "ค่าเข้า 59 Bath" },
+                { name: "Caspia Blox ˚๖𓈒", image: "https://img2.pic.in.th/Caspia-Blox.jpeg", url: "https://drive.google.com/drive/folders/1B-3saDvwkvSlBzGIWcM1MUUG_UQfy2I8", description: "ค่าเข้า 79 Bath" },
+                { name: "ดุ๋มดั๋ม บล็อก 🍓", image: "https://img2.pic.in.th/-d489aa33c1df6f0a.jpeg", url: "https://shorturl.asia/ba3hN", description: "ค่าเข้า 69 Bath" }
             ],
-            dark: [
-                { name: "🌙 ธีมมืด - หรูหรา", url: "https://t06.cozyw75.workers.dev" },
-                { name: "🌙 ธีมมืด - มินิมอล", url: "https://t07.cozyw75.workers.dev" },
-                { name: "🌙 ธีมมืด - คลาสสิค", url: "https://t08.cozyw75.workers.dev" }
+            decor: [
+                { name: "Tiny Stuff BY NANNIE", image: "https://img1.pic.in.th/images/Tiny-Stuff-BY-NANNIE.jpeg", url: "https://drive.google.com/drive/folders/143kSXFhJ9ymd5Wayxt0XPryHHP5fK6W4", description: "ค่าเข้า 159 Bath" },
+                { name: "Jaofurpuffin", image: "https://img1.pic.in.th/images/Jaofurpuffin.jpeg", url: "https://drive.google.com/drive/folders/1nF6wBIBv6Qk2Re2NwIHT6AlCRNF_05KY", description: "ค่าเข้า 59 Bath" },
+                { name: "Chocolate", image: "https://img2.pic.in.th/Chocolate.jpeg", url: "https://drive.google.com/drive/folders/1al32yYiZHCTYWObHus-z_oao-6L6AwKA", description: "ค่าเข้า 99 Bath" },
+                { name: "Gummy blossom", image: "https://img2.pic.in.th/Example-Gummy-blossom-.jpeg", url: "https://drive.google.com/drive/folders/10Mtl1E5XgTrFUw0m-hKCsaCBwzlj_N6j", description: "ค่าเข้า 79 Bath" },
+                { name: "JELLY NELLY", image: "https://img1.pic.in.th/images/-JELLY-NELLY-139.jpeg", url: "https://drive.google.com/drive/folders/1KXb33L7g0WjjtDNRdmAmJTqeAAFegOHW", description: "ค่าเข้า 139 Bath" },
+                { name: "𝐜𝐚𝐧𝐝𝐲 𝐦𝐞𝐥𝐥𝐨", image: "https://img2.pic.in.th/-a2fccfbfff36a01b.jpeg", url: "https://drive.google.com/drive/folders/12rB2_D6d6p-AfpmeI3Nt9-pIarfMt8x2", description: "ค่าเข้า 49 Bath" }
             ],
-            pastel: [
-                { name: "🎀 ธีมพาสเทล - หวานแหวว", url: "https://t09.cozyw75.workers.dev" },
-                { name: "🎀 ธีมพาสเทล - ละมุน", url: "https://t10.cozyw75.workers.dev" },
-                { name: "🎀 ธีมพาสเทล - เจ้าหญิง", url: "https://t11.cozyw75.workers.dev" }
+            cartoon: [
+                { name: "૮ ｡´.Kellynoir V.1 ", image: "https://img1.pic.in.th/images/Ex.Kellynoir-V.1.jpeg", url: "https://drive.google.com/drive/folders/1ymzwaJGDlrMyp7JJB9kkJMl4bH8utyz7", description: "ค่าเข้า 269 Bath" },
+                { name: "Little Baby 🧸 ", image: "https://img2.pic.in.th/Little-Baby-.jpeg", url: "https://drive.google.com/drive/folders/1hiHUQv2oRy2SQCMefPAiKjR3iNjoPlyT", description: "ค่าเข้า 159 Bath" },
+                { name: "Neko bunbun 🍥🥕", image: "https://img2.pic.in.th/-Example-Neko-bunbun-.jpeg", url: "https://drive.google.com/drive/folders/1BVsiRnZfEWm458xi4_GtMvNP9SvDTMSY", description: "ค่าเข้า 89 Bath" },
+                { name: "ᡣ𐭩 ྀིྀ ex Bunny Luxury 🐰", image: "https://img1.pic.in.th/images/--ex-Bunny-Luxury-.jpeg", url: "https://drive.google.com/drive/folders/1kWq2HoQ30PLQA4OhKR_5qDSZvH_jIvUr", description: "ค่าเข้า 99 Bath" }
+            ],
+            signs: [
+                { name: "Mini Dessert", image: "https://img2.pic.in.th/Mini-Dessert.jpeg", url: "https://drive.google.com/drive/folders/1FXds-9P3jHUSRzQv1KTQfagNTz-2mtOH", description: "ค่าเข้า 89 Bath" },
+                { name: "Ი𐑼 Bonnie Group 𓂂 ֯ ꒰", image: "https://img1.pic.in.th/images/-Bonnie-Group.jpeg", url: "https://drive.google.com/drive/folders/18vobCBq8Sq7NSFW7KmLzSVIZAEH-yevK", description: "ค่าเข้า 69 Bath" },
+                { name: "FLOWER CHA✨🌷", image: "https://img1.pic.in.th/images/FLOWER-CHA.jpeg", url: "https://drive.google.com/drive/folders/1pcOslwWHfx4dX_KFvIHsYIo7jcxOEL8G", description: "ค่าเข้า 49 Bath" }
+            ],
+            frames: [
+                { name: "🫧 Fukura pink 🫧", image: "https://img1.pic.in.th/images/Fukura-pink-.jpeg", url: "https://shorturl.asia/ed6LP", description: "ค่าเข้า 199 Bath" },
+                { name: "fukura pink v.2", image: "https://img1.pic.in.th/images/fukura-pink-v.2.jpeg", url: "https://drive.google.com/drive/folders/1uuaZbBomQrGA8Mt6id-FjQIC8OCMD26m", description: "ค่าเข้า 99 Bath" },
+                { name: "💓Fomu pink group💓", image: "https://img2.pic.in.th/Fomu-pink-group.jpeg", url: "https://drive.google.com/drive/folders/1-29hrx9OOGMx4HWjdcih-c7N6GwaudOB", description: "ค่าเข้า 159 Bath" },
+                { name: "กาลครั้งหนึ่ง", image: "https://img1.pic.in.th/images/eb39e7d3aaa30696f711af9d62b4dd2f.jpeg", url: "https://drive.google.com/drive/folders/1rFWFKbanW-sE4K0ftBfAM42vg9dOT26q", description: "ค่าเข้า 129 Bath" },
+                { name: "Frame Luxury", image: "https://img2.pic.in.th/Sweet-Pink.jpeg", url: "https://shorturl.asia/TJGau", description: "ค่าเข้า 129 Bath" },
+                { name: "Effect Luxury", image: "https://img2.pic.in.th/Effect-Luxury.jpeg", url: "https://drive.google.com/drive/folders/1_yHwtnvJjKrRtW_D3dRpQzM9Q_NrCyUj", description: "ค่าเข้า 119 Bath" }
+            ],
+            blockPieces: [
+                { name: "ชิ้นจิ๋ว by เพนเน่🤏🏻 ", image: "https://img1.pic.in.th/images/downloadcf735c69812999d8.jpeg", url: "https://drive.google.com/drive/folders/1ZLIE5af8EkYx7XVQPVkmrhLBbcQmDVnN", description: "ค่าเข้า 65 Bath" },
+                { name: "Maki Rina🌟 °", image: "https://img2.pic.in.th/download-1fc65f4cdc8552311.jpeg", url: "https://drive.google.com/drive/folders/1HwUn40OvE232vLlLyyjKiRaXGBEWiOUW", description: "ค่าเข้า 29 Bath" }
+            ],
+            png: [
+                { name: "PNG ZEBELL", image: "https://img2.pic.in.th/download-22063a33f9346d6e0.jpeg", url: "https://drive.google.com/drive/folders/16Gjomypu--StHhjm1Ao4tG77fiKr5p2v", description: "ค่าเข้า 280 Bath" }
             ]
         };
 
-        const titles = {
-            bright: "<i class='fa-solid fa-sun text-brand-main mr-2'></i> เทมเพลตโทนสดใส",
-            dark: "<i class='fa-solid fa-moon text-[#8A6F65] mr-2'></i> เทมเพลตโทนมืด",
-            pastel: "<i class='fa-solid fa-candy-cane text-brand-text mr-2'></i> เทมเพลตพาสเทล"
+        const productTitles = {
+            blockGroup: "<i class='fa-solid fa-sun text-brand-main mr-2'></i> กลุ่มบล็อค",
+            decor: "<i class='fa-solid fa-moon text-brand-main mr-2'></i> ของตกแต่ง",
+            cartoon: "<i class='fa-solid fa-candy-cane text-brand-text mr-2'></i> กลุ่มตูน",
+            signs: "<i class='fa-solid fa-chalkboard-user text-brand-text mr-2'></i> สอนหัวป้าย",
+            frames: "<i class='fa-solid fa-star text-brand-main mr-2'></i> กรอบเรท ตุ้งติ้ง",
+            blockPieces: "<i class='fa-solid fa-cube text-brand-main mr-2'></i> ชิ้นส่วนบล็อค",
+            png: "<i class='fa-solid fa-image text-brand-text mr-2'></i> PNG"
         };
 
         function switchTab(pageId, navIndex) {
@@ -691,12 +770,15 @@
             window.scrollTo(0, 0);
 
             if(pageId !== 'page-services') {
-                document.getElementById('template-links-container').classList.add('hidden');
+                const container = document.getElementById('template-links-container');
+                if (container) {
+                    container.classList.add('hidden');
+                }
             }
 
             if (navIndex >= 0) {
                 for (let i = 0; i <= 3; i++) {
-                    const item = document.getElementById(nav-item-${i});
+                    const item = document.getElementById(`nav-item-${i}`);
                     if (item) {
                         if (i === navIndex) {
                             item.classList.remove('text-brand-subtext');
@@ -711,7 +793,7 @@
                 }
             } else {
                 for (let i = 0; i <= 3; i++) {
-                    const item = document.getElementById(nav-item-${i});
+                    const item = document.getElementById(`nav-item-${i}`);
                     if (item) {
                         item.classList.remove('text-brand-main');
                         item.classList.add('text-brand-subtext');
@@ -721,31 +803,96 @@
             }
         }
 
-        function toggleCategory(cat) {
+        function showProductMenu(cat) {
             const container = document.getElementById('template-links-container');
             const titleEl = document.getElementById('template-title');
             const listEl = document.getElementById('template-list');
+            const products = productCategories[cat] || [];
 
             if (!container || !titleEl || !listEl) return;
 
-            titleEl.innerHTML = titles[cat];
+            titleEl.innerHTML = productTitles[cat] || 'สินค้า';
             listEl.innerHTML = '';
 
-            templates[cat].forEach(tmpl => {
-                const a = document.createElement('a');
-                a.href = tmpl.url;
-                a.target = '_blank';
-                a.className = 'block w-full p-3 mb-2 rounded-xl bg-brand-light/30 border border-brand-light hover:bg-[#FFD1E0] hover:border-[#FF9EBB] transition-colors text-xs font-medium text-brand-text flex justify-between items-center group';
-                a.innerHTML = `
-                    <span>${tmpl.name}</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-brand-main opacity-50 group-hover:opacity-100 transition-opacity"></i>
-                `;
-                listEl.appendChild(a);
-            });
+            if (products.length === 0) {
+                listEl.innerHTML = '<div class="text-center text-brand-subtext text-[11px]">ยังไม่มีสินค้าสำหรับหมวดนี้</div>';
+            } else {
+                products.forEach(product => {
+                    const a = document.createElement('a');
+                    a.href = product.url;
+                    a.target = '_blank';
+                    a.className = 'block border border-brand-light rounded-2xl overflow-hidden bg-white hover:bg-brand-light/30 transition-colors';
+                    a.innerHTML = `
+                        <div class="flex items-center gap-3 p-3">
+                            <img src="${product.image}" alt="${product.name}" class="w-16 h-16 rounded-xl object-cover border border-brand-light" />
+                            <div class="min-w-0">
+                                <p class="text-sm font-semibold text-brand-text truncate">${product.name}</p>
+                                <p class="text-[10px] text-brand-subtext mt-1 leading-tight">${product.description || ''}</p>
+                            </div>
+                            <div class="text-brand-main text-[11px] font-semibold flex items-center gap-1">
+                                <span>ดูเพิ่มเติม</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </div>
+                    `;
+                    listEl.appendChild(a);
+                });
+            }
 
             container.classList.remove('hidden');
             container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
     </script>
-</body>
-</html>
+    <script>
+        // Hide loading screen when page is fully loaded
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 800);
+            }
+        });
+        
+        // Fallback: define switchTab if main script failed to load/parse
+        if (typeof window.switchTab !== 'function') {
+            window.switchTab = function(pageId, navIndex) {
+                try {
+                    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+                    const target = document.getElementById(pageId);
+                    if (target) target.classList.add('active');
+                    window.scrollTo(0,0);
+
+                    if(pageId !== 'page-services') {
+                        const container = document.getElementById('template-links-container');
+                        if (container) container.classList.add('hidden');
+                    }
+
+                    if (typeof navIndex === 'number' && navIndex >= 0) {
+                        for (let i = 0; i <= 3; i++) {
+                            const item = document.getElementById(`nav-item-${i}`);
+                            if (item) {
+                                if (i === navIndex) {
+                                    item.classList.remove('text-brand-subtext');
+                                    item.classList.add('text-brand-main');
+                                    const sp = item.querySelector('span'); if (sp) sp.classList.replace('font-medium','font-semibold');
+                                } else {
+                                    item.classList.remove('text-brand-main');
+                                    item.classList.add('text-brand-subtext');
+                                    const sp = item.querySelector('span'); if (sp) sp.classList.replace('font-semibold','font-medium');
+                                }
+                            }
+                        }
+                    } else {
+                        for (let i = 0; i <= 3; i++) {
+                            const item = document.getElementById(`nav-item-${i}`);
+                            if (item) {
+                                item.classList.remove('text-brand-main');
+                                item.classList.add('text-brand-subtext');
+                                const sp = item.querySelector('span'); if (sp) sp.classList.replace('font-semibold','font-medium');
+                            }
+                        }
+                    }
+                } catch (e) {
+                    console.warn('fallback switchTab error', e);
+                }
